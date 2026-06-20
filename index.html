@@ -1,62 +1,399 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Cuaderno ICFES Kawaii</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
-</head>
-<body>
 
-    <!-- 1. POST-IT MOTIVACIONAL DE INICIO -->
-    <div class="postit-inicio" id="fraseMotivacional">
-        <span class="pin">📌</span>
-        <p id="textoFrase">¡Cargando tu vibra de hoy...!</p>
-    </div>
+<html lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Soft Study Kawaii Notebooks - Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&amp;family=Comfortaa:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error-container": "#ffdad6",
+                    "secondary-container": "#e6e2dd",
+                    "on-secondary-fixed": "#1c1c19",
+                    "error": "#ba1a1a",
+                    "background": "#fff8f6",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-container": "#666460",
+                    "primary-container": "#aec6cf",
+                    "secondary-fixed-dim": "#c9c6c1",
+                    "outline": "#72787a",
+                    "on-background": "#2c160e",
+                    "on-primary-fixed-variant": "#344a52",
+                    "surface-container": "#ffe9e3",
+                    "on-tertiary-fixed-variant": "#524342",
+                    "on-tertiary-container": "#5b4c4b",
+                    "on-surface": "#2c160e",
+                    "primary-fixed-dim": "#b2cad3",
+                    "surface": "#fff8f6",
+                    "surface-container-high": "#ffe2da",
+                    "tertiary-container": "#d2bebc",
+                    "inverse-on-surface": "#ffede8",
+                    "tertiary": "#6a5b59",
+                    "on-error": "#ffffff",
+                    "primary": "#4b626a",
+                    "on-surface-variant": "#42484a",
+                    "tertiary-fixed-dim": "#d6c2c0",
+                    "surface-container-low": "#fff1ed",
+                    "secondary-fixed": "#e6e2dd",
+                    "surface-bright": "#fff8f6",
+                    "surface-dim": "#fbd1c4",
+                    "tertiary-fixed": "#f3dedc",
+                    "on-error-container": "#93000a",
+                    "surface-variant": "#ffdbd0",
+                    "on-secondary-fixed-variant": "#484743",
+                    "inverse-surface": "#442a22",
+                    "surface-container-highest": "#ffdbd0",
+                    "primary-fixed": "#cee7f0",
+                    "outline-variant": "#c2c7ca",
+                    "on-primary-fixed": "#061e25",
+                    "secondary": "#605e5b",
+                    "on-primary": "#ffffff",
+                    "on-primary-container": "#3c535b",
+                    "surface-tint": "#4b626a",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-fixed": "#241918",
+                    "on-secondary": "#ffffff",
+                    "inverse-primary": "#b2cad3"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "md": "24px",
+                    "container-max": "1200px",
+                    "xl": "64px",
+                    "sm": "12px",
+                    "base": "8px",
+                    "gutter": "24px",
+                    "lg": "40px",
+                    "xs": "4px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Quicksand"],
+                    "label-sm": ["Quicksand"],
+                    "headline-lg": ["Quicksand"],
+                    "title-md": ["Quicksand"],
+                    "headline-lg-mobile": ["Quicksand"],
+                    "body-lg": ["Quicksand"],
+                    "note-text": ["Comfortaa"],
+                    "body-md": ["Quicksand"]
+            },
+            "fontSize": {
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-sm": ["13px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "note-text": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #fff8f6;
+            color: #2c160e;
+            font-family: 'Quicksand', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .kawaii-shadow {
+            box-shadow: 0px 4px 20px rgba(93, 64, 55, 0.06);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #fff8f6;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #aec6cf;
+            border-radius: 10px;
+        }
+        .note-font {
+            font-family: 'Comfortaa', cursive;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="flex min-h-screen">
+<!-- NavigationDrawer (Shared Component) -->
+<aside class="h-screen w-64 fixed left-0 top-0 rounded-r-lg bg-secondary-fixed shadow-sm flex flex-col py-md overflow-y-auto z-50">
+<div class="px-md mb-lg">
+<h1 class="font-display-lg text-display-lg text-primary">Soft Study</h1>
+<p class="font-title-md text-title-md text-primary opacity-80">Learning Sanctuary</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="bg-primary-container text-on-primary-container rounded-full mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all hover:scale-[1.02] active:scale-95" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-title-md text-title-md">Home</span>
+</a>
+<a class="text-on-secondary-fixed-variant hover:bg-surface-container rounded-full mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all hover:scale-[1.02] active:scale-95" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="font-title-md text-title-md">My Notebooks</span>
+</a>
+<a class="text-on-secondary-fixed-variant hover:bg-surface-container rounded-full mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all hover:scale-[1.02] active:scale-95" href="#">
+<span class="material-symbols-outlined">search</span>
+<span class="font-title-md text-title-md">Smart Search</span>
+</a>
+<a class="text-on-secondary-fixed-variant hover:bg-surface-container rounded-full mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all hover:scale-[1.02] active:scale-95" href="#">
+<span class="material-symbols-outlined">edit</span>
+<span class="font-title-md text-title-md">Editing Tools</span>
+</a>
+<a class="text-on-secondary-fixed-variant hover:bg-surface-container rounded-full mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all hover:scale-[1.02] active:scale-95" href="#">
+<span class="material-symbols-outlined">auto_awesome</span>
+<span class="font-title-md text-title-md">Creative Tools</span>
+</a>
+<a class="text-on-secondary-fixed-variant hover:bg-surface-container rounded-full mx-2 my-1 px-4 py-3 flex items-center gap-3 transition-all hover:scale-[1.02] active:scale-95" href="#">
+<span class="material-symbols-outlined">music_note</span>
+<span class="font-title-md text-title-md">Lo-Fi Player</span>
+</a>
+</nav>
+<div class="mt-auto px-md pt-md border-t border-secondary-container">
+<div class="flex items-center gap-3 p-2 bg-surface-container-lowest rounded-lg kawaii-shadow">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="A soft, aesthetically pleasing student profile picture, circular frame, minimalist background with soft pastel pink and blue tones, gentle studio lighting, clean digital illustration style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_fP2l1ghi34QPhziPy7KqD-17GPhVNtElyeh3gkDvzCJzOE6Otc2-WmrPNSHhqg4Es3MRKYDqmm_QqXwadZHlCK8rsHneBhXMF_4IxPMqlBKEVA5vCvq93SaZDnKcl81G9VvRB0rpKfOyNRPUK8Rvrc6R5FxDyj0QeJU1jULMmWfRrLlcxCkU3hY-PIpUavCs3hQyJPKRJnjPi0k_Ynkt_rihx9UyfXxCnrhh6liEQACLZ-vKTVFaR7L0enr4HsPse5zgXpIcXR48"/>
+<div class="overflow-hidden">
+<p class="font-title-md text-[14px] truncate">Premium Member</p>
+<p class="text-xs text-on-surface-variant">Estudiante Pro</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 flex-1 flex flex-col min-h-screen">
+<!-- TopAppBar (Shared Component) -->
+<header class="w-full sticky top-0 z-40 bg-background flex justify-between items-center px-lg py-md">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary">Soft Study Kawaii Notebooks</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Tu espacio favorito para prepararte para el ICFES.</p>
+</div>
+<div class="flex items-center gap-md">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors active:opacity-80">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors active:opacity-80">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="w-12 h-12 rounded-full overflow-hidden border-2 border-primary-container cursor-pointer hover:scale-105 transition-transform">
+<img class="w-full h-full object-cover" data-alt="A cozy profile picture of a student wearing cute round glasses and a soft beige sweater, aesthetic desk setting in the background with a small plant, warm morning lighting, soft focus photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2zQFRuwLELGIEab9fKa_bt7s4FfR-eVUT9VF8Uptn3NNMWthqT6miDFosi9QYc6XrtdXWbY68IJnoNmSua6D-1FlnGbacnKCUoGObeSZeFTy1fxNLCZ0qothbXMxPx6d7IqKt2UOhLoM3yFqT6_49-wdjaTKJsFtMIYMz7qO4wthy_ZsRxO-vW3TZlh9O2DKdAshxPDWAf5KYrUmmqjWcxotKiiSWjO8-jtRUa4Z70BfoOWQKePMgdygG716osUKF2EqZpzGj90aw"/>
+</div>
+</div>
+</header>
+<!-- Dashboard Content -->
+<div class="p-lg space-y-lg">
+<!-- Section 1: Subjects Grid -->
+<section>
+<div class="flex items-center justify-between mb-md">
+<h3 class="font-headline-lg text-[24px] text-primary">Materias de Estudio</h3>
+<button class="text-primary font-bold hover:underline">Ver todo</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-gutter">
+<!-- Subject Card 1 -->
+<div class="bg-surface-container-lowest p-md rounded-lg kawaii-shadow hover:scale-[1.02] transition-transform cursor-pointer group">
+<div class="w-16 h-16 bg-primary-fixed rounded-full flex items-center justify-center mb-md group-hover:bg-primary-container transition-colors">
+<span class="text-3xl">📖</span>
+</div>
+<h4 class="font-title-md text-title-md text-on-surface mb-xs">Lectura Crítica</h4>
+<p class="text-on-surface-variant text-sm mb-md">12 apuntes</p>
+<div class="w-full h-2 bg-secondary-container rounded-full overflow-hidden">
+<div class="h-full bg-primary-container w-[75%] rounded-full"></div>
+</div>
+<p class="text-[10px] mt-1 text-right font-bold text-primary">75% Completado</p>
+</div>
+<!-- Subject Card 2 -->
+<div class="bg-surface-container-lowest p-md rounded-lg kawaii-shadow hover:scale-[1.02] transition-transform cursor-pointer group">
+<div class="w-16 h-16 bg-[#e1f5fe] rounded-full flex items-center justify-center mb-md group-hover:bg-[#b3e5fc] transition-colors">
+<span class="text-3xl">🇺🇸</span>
+</div>
+<h4 class="font-title-md text-title-md text-on-surface mb-xs">Inglés</h4>
+<p class="text-on-surface-variant text-sm mb-md">8 apuntes</p>
+<div class="w-full h-2 bg-secondary-container rounded-full overflow-hidden">
+<div class="h-full bg-[#81d4fa] w-[45%] rounded-full"></div>
+</div>
+<p class="text-[10px] mt-1 text-right font-bold text-primary">45% Completado</p>
+</div>
+<!-- Subject Card 3 -->
+<div class="bg-surface-container-lowest p-md rounded-lg kawaii-shadow hover:scale-[1.02] transition-transform cursor-pointer group">
+<div class="w-16 h-16 bg-[#f1f8e9] rounded-full flex items-center justify-center mb-md group-hover:bg-[#dcedc8] transition-colors">
+<span class="text-3xl">🧪</span>
+</div>
+<h4 class="font-title-md text-title-md text-on-surface mb-xs">Ciencias Naturales</h4>
+<p class="text-on-surface-variant text-sm mb-md">24 apuntes</p>
+<div class="w-full h-2 bg-secondary-container rounded-full overflow-hidden">
+<div class="h-full bg-[#aed581] w-[90%] rounded-full"></div>
+</div>
+<p class="text-[10px] mt-1 text-right font-bold text-primary">90% Completado</p>
+</div>
+<!-- Subject Card 4 -->
+<div class="bg-surface-container-lowest p-md rounded-lg kawaii-shadow hover:scale-[1.02] transition-transform cursor-pointer group">
+<div class="w-16 h-16 bg-[#fffde7] rounded-full flex items-center justify-center mb-md group-hover:bg-[#fff9c4] transition-colors">
+<span class="text-3xl">🌎</span>
+</div>
+<h4 class="font-title-md text-title-md text-on-surface mb-xs">Ciencias Sociales</h4>
+<p class="text-on-surface-variant text-sm mb-md">15 apuntes</p>
+<div class="w-full h-2 bg-secondary-container rounded-full overflow-hidden">
+<div class="h-full bg-[#fff176] w-[60%] rounded-full"></div>
+</div>
+<p class="text-[10px] mt-1 text-right font-bold text-primary">60% Completado</p>
+</div>
+<!-- Subject Card 5 -->
+<div class="bg-surface-container-lowest p-md rounded-lg kawaii-shadow hover:scale-[1.02] transition-transform cursor-pointer group">
+<div class="w-16 h-16 bg-[#f3e5f5] rounded-full flex items-center justify-center mb-md group-hover:bg-[#e1bee7] transition-colors">
+<span class="text-3xl">➗</span>
+</div>
+<h4 class="font-title-md text-title-md text-on-surface mb-xs">Matemáticas</h4>
+<p class="text-on-surface-variant text-sm mb-md">30 apuntes</p>
+<div class="w-full h-2 bg-secondary-container rounded-full overflow-hidden">
+<div class="h-full bg-[#ce93d8] w-[82%] rounded-full"></div>
+</div>
+<p class="text-[10px] mt-1 text-right font-bold text-primary">82% Completado</p>
+</div>
+</div>
+</section>
+<!-- Bottom Sections Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter pb-lg">
+<!-- Section 2: Interactive Calendar -->
+<div class="lg:col-span-2 bg-surface-container-lowest p-lg rounded-lg kawaii-shadow">
+<div class="flex items-center justify-between mb-md">
+<div class="flex items-center gap-md">
+<h3 class="font-headline-lg text-[24px] text-primary">Calendario de Estudio</h3>
+<div class="flex bg-secondary-fixed rounded-full p-1">
+<button class="px-4 py-1 rounded-full text-sm font-bold bg-primary text-white">Mensual</button>
+<button class="px-4 py-1 rounded-full text-sm font-bold text-on-surface-variant hover:bg-surface-container transition-colors">Semanal</button>
+</div>
+</div>
+<div class="flex items-center gap-xs">
+<button class="p-1 hover:bg-secondary-container rounded-full"><span class="material-symbols-outlined">chevron_left</span></button>
+<span class="font-bold text-primary">Octubre 2023</span>
+<button class="p-1 hover:bg-secondary-container rounded-full"><span class="material-symbols-outlined">chevron_right</span></button>
+</div>
+</div>
+<!-- Calendar Grid -->
+<div class="grid grid-cols-7 gap-xs text-center">
+<div class="text-on-surface-variant text-xs font-bold py-2">Lun</div>
+<div class="text-on-surface-variant text-xs font-bold py-2">Mar</div>
+<div class="text-on-surface-variant text-xs font-bold py-2">Mié</div>
+<div class="text-on-surface-variant text-xs font-bold py-2">Jue</div>
+<div class="text-on-surface-variant text-xs font-bold py-2">Vie</div>
+<div class="text-on-surface-variant text-xs font-bold py-2">Sáb</div>
+<div class="text-on-surface-variant text-xs font-bold py-2">Dom</div>
+<!-- Row 1 -->
+<div class="p-4 rounded-lg text-on-secondary-fixed-variant opacity-30">25</div>
+<div class="p-4 rounded-lg text-on-secondary-fixed-variant opacity-30">26</div>
+<div class="p-4 rounded-lg text-on-secondary-fixed-variant opacity-30">27</div>
+<div class="p-4 rounded-lg text-on-secondary-fixed-variant opacity-30">28</div>
+<div class="p-4 rounded-lg text-on-secondary-fixed-variant opacity-30">29</div>
+<div class="p-4 rounded-lg text-on-secondary-fixed-variant opacity-30">30</div>
+<div class="p-4 hover:bg-surface-container rounded-lg cursor-pointer">1</div>
+<!-- Row 2 -->
+<div class="p-4 hover:bg-surface-container rounded-lg cursor-pointer flex flex-col items-center">
+<span>2</span>
+<div class="w-1.5 h-1.5 bg-[#aec6cf] rounded-full mt-1"></div>
+</div>
+<div class="p-4 hover:bg-surface-container rounded-lg cursor-pointer">3</div>
+<div class="p-4 hover:bg-surface-container rounded-lg cursor-pointer">4</div>
+<div class="p-4 hover:bg-surface-container rounded-lg cursor-pointer">5</div>
+<div class="p-4 bg-primary text-white rounded-lg cursor-pointer font-bold relative">
+                            6
+                            <span class="absolute top-1 right-1 text-[10px]">✨</span>
+</div>
+<div class="p-4 hover:bg-surface-container rounded-lg cursor-pointer flex flex-col items-center">
+<span>7</span>
+<div class="w-1.5 h-1.5 bg-[#d2bebc] rounded-full mt-1"></div>
+</div>
+<div class="p-4 hover:bg-surface-container rounded-lg cursor-pointer">8</div>
+</div>
+<!-- Events List -->
+<div class="mt-lg grid grid-cols-1 md:grid-cols-3 gap-md">
+<div class="flex items-center gap-sm bg-[#e1f5fe] p-sm rounded-lg">
+<span class="material-symbols-outlined text-[#0288d1]">event</span>
+<div>
+<p class="text-xs font-bold text-[#01579b]">Simulacro ICFES</p>
+<p class="text-[10px] text-[#0288d1]">15:00 - 17:00</p>
+</div>
+</div>
+<div class="flex items-center gap-sm bg-[#f1f8e9] p-sm rounded-lg">
+<span class="material-symbols-outlined text-[#689f38]">task</span>
+<div>
+<p class="text-xs font-bold text-[#33691e]">Entrega Tarea Mate</p>
+<p class="text-[10px] text-[#689f38]">Todo el día</p>
+</div>
+</div>
+<div class="flex items-center gap-sm bg-[#fffde7] p-sm rounded-lg">
+<span class="material-symbols-outlined text-[#fbc02d]">push_pin</span>
+<div>
+<p class="text-xs font-bold text-[#f57f17]">Repasar Vocabulario</p>
+<p class="text-[10px] text-[#fbc02d]">10:00 AM</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 3: Motivational Post-it -->
+<div class="flex flex-col gap-gutter">
+<div class="flex-1 bg-[#fff9c4] p-lg rounded-lg rotate-1 kawaii-shadow relative overflow-hidden flex flex-col justify-center items-center text-center">
+<!-- Post-it Decor -->
+<div class="absolute top-0 left-1/2 -translate-x-1/2 w-16 h-6 bg-white/40 blur-sm"></div>
+<span class="material-symbols-outlined text-4xl text-[#f57f17] mb-md">auto_stories</span>
+<h4 class="note-font font-note-text text-xl text-[#5d4037] leading-relaxed" id="motivational-quote">
+                            "Cada pequeño paso que das hoy te acerca más a tu gran meta del mañana. ¡Tú puedes!"
+                        </h4>
+<div class="absolute bottom-4 right-4 text-2xl opacity-50">🌱</div>
+</div>
+<button class="w-full bg-primary-container text-on-primary-container font-bold py-4 rounded-full kawaii-shadow hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-2" id="next-quote-btn">
+<span class="material-symbols-outlined">refresh</span>
+                        Siguiente frase
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<script>
+        const quotes = [
+            "Cada pequeño paso que das hoy te acerca más a tu gran meta del mañana. ¡Tú puedes!",
+            "El éxito es la suma de pequeños esfuerzos repetidos día tras día.",
+            "No te detengas cuando estés cansado, detente cuando hayas terminado.",
+            "Tu único límite eres tú mismo. ¡Atrévete a brillar!",
+            "Estudiar no es una carga, es el pasaporte hacia tu futuro soñado.",
+            "Cree en ti y en todo lo que eres. Eres más capaz de lo que imaginas."
+        ];
 
-    <div class="contenedor-principal">
-        <!-- 2. BARRA DE BÚSQUEDA -->
-        <div class="barra-busqueda">
-            <input type="text" id="buscador" placeholder="🔍 Busca temas en todos tus cuadernos...">
-        </div>
+        const quoteElement = document.getElementById('motivational-quote');
+        const nextQuoteBtn = document.getElementById('next-quote-btn');
 
-        <!-- 3. PESTAÑAS DE MATERIAS (CUADERNOS) -->
-        <div class="pestanas-materias">
-            <button class="tab-btn activo" data-materia="lectura">📖 Lectura</button>
-            <button class="tab-btn" data-materia="ingles">🇬🇧 Inglés</button>
-            <button class="tab-btn" data-materia="naturales">🌱 Naturales</button>
-            <button class="tab-btn" data-materia="sociales">🌍 Sociales</button>
-            <button class="tab-btn" data-materia="matematicas">📐 Matemáticas</button>
-        </div>
+        nextQuoteBtn.addEventListener('click', () => {
+            quoteElement.classList.add('opacity-0');
+            setTimeout(() => {
+                const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+                quoteElement.textContent = `"${randomQuote}"`;
+                quoteElement.classList.remove('opacity-0');
+                quoteElement.classList.add('transition-opacity', 'duration-300');
+            }, 300);
+        });
 
-        <!-- 4. ÁREA DE ESTUDIO -->
-        <main class="lienzo-estudio">
-            <h2 id="tituloMateria">Cuaderno de Lectura Crítica</h2>
-            <textarea id="blocNotas" placeholder="Escribe tus apuntes, resúmenes o preguntas del ICFES aquí..."></textarea>
-            <div class="estado-guardado" id="estadoGuardado">Cambios guardados automáticamente ✨</div>
-        </main>
-    </div>
-
-    <!-- 5. REPRODUCTOR DE MÚSICA FLOTANTE -->
-    <div class="reproductor-flotante" id="reproductor">
-        <div class="rep-header" id="reproductorHeader">🎵 Estudio Vibes (Arrástrame)</div>
-        <div class="rep-cuerpo">
-            <select id="selectorSonido">
-                <option value="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">🎹 Lofi Instrumental</option>
-                <option value="https://assets.mixkit.co/active_storage/sfx/2433/2433-84.wav">🌧️ Lluvia Relajante</option>
-                <option value="https://assets.mixkit.co/active_storage/sfx/1082/1082-84.wav">☕ Ambiente de Café</option>
-            </select>
-            <div class="controles-musica">
-                <button id="btnPlayPausa">▶️</button>
-                <input type="range" id="controlVolumen" min="0" max="1" step="0.1" value="0.5">
-            </div>
-        </div>
-    </div>
-
-    <!-- Audio oculto que reproducirá los sonidos -->
-    <audio id="reproductorAudio" loop></audio>
-
-    <script src="script.js"></script>
-</body>
-</html>
+        // Simple interactive micro-interactions
+        document.querySelectorAll('.kawaii-shadow').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-4px) scale(1.01)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+</body></html>
